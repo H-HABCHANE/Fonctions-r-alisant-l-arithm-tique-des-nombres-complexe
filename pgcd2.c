@@ -1,18 +1,24 @@
-#include <studio.h>
-#include <math.h>
+#include <stdio.h>
 
-int main{
-    int a,b,r;
+int pgcd(int a, int b);
 
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
-    while (b!=0)
-    {
-        /* code */
-        r=a % b;
-        a=b;
-        b=r;
+
+int pgcd(int a, int b) {
+    int r;
+    while (b != 0) {
+        r = a % b;
+        a = b;
+        b = r;
     }
-    printf("PGCD = %d\n", a);
-    return 0;
+    return a;
 }
+
+int main() {
+    int x, y, resultat;
+
+    printf("Entrez deux entiers : ");
+    scanf("%d %d", &x, &y);
+
+    resultat = pgcd(x, y);
+
+    printf("Le PGCD de %d et %d est : %d\n", x, y, resultat);
